@@ -1,0 +1,87 @@
+ul {
+  display: block !important;
+  list-style-type: disc !important;
+  margin-block-start: 1em !important;
+  margin-block-end: 1em !important;
+  margin-inline-start: 0px !important;
+  margin-inline-end: 0px !important;
+  padding-inline-start: 40px !important;
+  position: relative;
+  bottom: 107px;
+  left: -12px;
+  color: black;
+  font-size: 17px;
+  font-weight: 400;
+  text-shadow: darkgray;
+}
+#navbar {
+  background-color: #fff;
+  width: 100%;
+  height: 16% !important;
+  box-shadow: 3px 3px 5px 6px #232121;
+}
+#searchform {
+  width: 100%;
+}
+#inputdiv {
+  vertical-align: top;
+  display: inline-block;
+}
+li {
+  padding: 0 8px !important;
+  display: inline-block !important;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+  position: relative;
+  right: 7em;
+  bottom: 2em;
+  left: -9em;
+  height: 176px;
+  width: 169px;
+}
+
+#logo {
+  width: 10px;
+}
+
+input:not([type]),
+input[type="text"]:not(.browser-default),
+input[type="password"]:not(.browser-default),
+input[type="email"]:not(.browser-default),
+input[type="url"]:not(.browser-default),
+input[type="time"]:not(.browser-default),
+input[type="date"]:not(.browser-default),
+input[type="datetime"]:not(.browser-default),
+input[type="datetime-local"]:not(.browser-default),
+input[type="tel"]:not(.browser-default),
+input[type="number"]:not(.browser-default),
+input[type="search"]:not(.browser-default),
+textarea.materialize-textarea {
+  /* background-color: transparent; */
+  /* border: none; */
+  border-bottom: 1px solid #0a0a0a;
+  /* border-radius: 0; */
+  outline: none;
+  /* height: 3rem; */
+  /* width: 100%; */
+  font-size: 16px;
+  /* margin: 0 0 8px 0; */
+  /* padding: 0; */
+  /* -webkit-box-shadow: none; */
+  /* box-shadow: none; */
+  /* -webkit-box-sizing: content-box; */
+  /* box-sizing: content-box; */
+  /* -webkit-transition: border .3s, -webkit-box-shadow .3s; */
+  /* transition: border .3s, -webkit-box-shadow .3s; */
+  /* transition: box-shadow .3s, border .3s; */
+  /* transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s; */
+}
+nav {
+  color: #7b4343;
+  background-color: #5a5a51;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+}

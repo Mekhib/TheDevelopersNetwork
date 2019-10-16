@@ -1,0 +1,54 @@
+#logo {
+  width: 67px;
+  position: relative;
+  left: 36px;
+  margin: 11px;
+}
+
+.search {
+  background-color: white !important;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px !important;
+  /* text-align: left; */
+  /* text-decoration: none; */
+  /* display: inline-block; */
+  /* font-size: 15px; */
+  /* margin: 42px !important; */
+  width: 47em !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.16) !important;
+  vertical-align: top;
+  position: relative;
+  left: 132px;
+  top: 18px;
+  transition: all 0.5s ease-in-out;
+  border-radius: 5px 5px 5px 5px !important;
+  box-sizing: border-box !important;
+}
+form {
+  width: 30px;
+}
+
+nav {
+  color: #7b4343;
+  background-color: #353f5c;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+}
+
+#logoimage {
+  width: 58px !important;
+  position: fixed;
+  top: 6px;
+  left: 59px;
+}
+#logoimagediv {
+  width: 10em !important;
+}
+.tabs.tabs-transparent {
+  background-color: #cec5c500;
+  position: relative;
+  left: 109px;
+}
