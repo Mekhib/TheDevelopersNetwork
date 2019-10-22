@@ -1,0 +1,16 @@
+.chip {
+  display: inline-block;
+  height: 32px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: #390be8ab;
+  margin-bottom: 5px;
+  margin-right: 14px;
+  position: relative;
+  bottom: 11em;
+  left: 23em;
+}

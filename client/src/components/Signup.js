@@ -1,4 +1,5 @@
 import React from "react";
+import "../../src/components/cssfiles/theme.css";
 function Signup() {
   return (
     <div className="wrapper fadeInDown">

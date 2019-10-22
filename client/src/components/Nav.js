@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 import "../components/cssfiles/search.css";
 import List from "./List";
+import Button from "./Button/index.js";
+import Cardcontainer from "./cardcontainer";
+import Axios from "axios";
 class Search extends Component {
+  componentDidMount() {
+    Axios.get("/hello").then(res => {
+      console.log(res.data[2].title);
+      this.setState({ value: res.data });
+      console.log(this.state.value);
+    });
+  }
   state = {
     data: [],
-    search: ""
+    value: ""
   };
   handleInputChange = event => {
     // Destructure the name and value properties off of event.target
@@ -44,12 +54,15 @@ class Search extends Component {
               ></img>
             </div>
             <input
-              name="name"
+              type="text"
+              name="search"
               class="search"
               placeholder="Boo!...lean"
-              value=""
               onChange={this.handleInputChange}
-            ></input>
+              //this.state.search
+              // onClick={this.handleFormSubmit}
+            />
+            <Button />
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
                 <a href="sass.html">Sass</a>
@@ -93,6 +106,7 @@ class Search extends Component {
           </li>
         </ul>
         <List />
+        <Cardcontainer />
       </div>
     );
   }
