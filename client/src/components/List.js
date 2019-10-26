@@ -1,13 +1,20 @@
 import React from "react";
 import "../components/cssfiles/list.css";
 import "../components/cssfiles/mainlist.css";
-function List() {
+import "./cardcontainer";
+function List(props) {
+  console.log(props);
   return (
     <div class="w3-sidebar w3-bar-block w3-padding z-depth-3">
       <h3 class="w3-bar-item" id="listtitle">
         Menu
       </h3>
-      <a href="#" class="w3-bar-item w3-button" id="list1">
+      <a
+        href="#"
+        class="w3-bar-item w3-button"
+        id="list1"
+        onClick={props.learn}
+      >
         <img
           src="https://cdn4.iconfinder.com/data/icons/miu-gloss-social/60/stackoverflow-512.png"
           id="listimage"

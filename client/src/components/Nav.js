@@ -6,11 +6,11 @@ import Cardcontainer from "./cardcontainer";
 import Axios from "axios";
 class Search extends Component {
   componentDidMount() {
-    Axios.get("/hello").then(res => {
-      console.log(res.data[2].title);
-      this.setState({ value: res.data });
-      console.log(this.state.value);
-    });
+    // Axios.get("/hello").then(res => {
+    //   console.log(res.data[2].title);
+    //   this.setState({ value: res.data });
+    //   console.log(this.state.value);
+    // });
   }
   state = {
     data: [],
@@ -62,7 +62,7 @@ class Search extends Component {
               //this.state.search
               // onClick={this.handleFormSubmit}
             />
-            <Button />
+            {/* <Button learn={this.props.learnSearch} /> */}
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
                 <a href="sass.html">Sass</a>
@@ -105,8 +105,6 @@ class Search extends Component {
             <a href="collapsible.html">JavaScript</a>
           </li>
         </ul>
-        <List />
-        <Cardcontainer />
       </div>
     );
   }

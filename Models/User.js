@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+
 var users = new mongoose.Schema({
   name: {
     type: String,
@@ -18,9 +19,24 @@ var users = new mongoose.Schema({
     required: true,
     trim: true
   },
+  picture: {
+    type: String,
+    unique: true,
+    required: true,
+    trim: true
+  },
+  bio: {
+    type: String,
+    trim: true
+  },
   password: {
     type: String,
     required: true
+  },
+  points: {
+    type: Number,
+    required: true,
+    default: 100
   }
 });
 var User = mongoose.model("User", users);

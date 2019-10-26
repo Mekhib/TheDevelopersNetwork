@@ -14,3 +14,7 @@
   bottom: 11em;
   left: 23em;
 }
+#tags {
+  position: fixed;
+  top: 19em;
+}

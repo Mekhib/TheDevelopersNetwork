@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import "./cssfiles/tags.css";
+import Axios from "axios";
 class tags extends Component {
   state = {
     website: "",
     img: "",
     likes: 0,
     summary: ""
+  };
+  tagresult = id => {
+    Axios.get("/");
   };
   render() {
     return (

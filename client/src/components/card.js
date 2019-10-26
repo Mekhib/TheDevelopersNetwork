@@ -1,8 +1,8 @@
 import React from "react";
 import "./cssfiles/card.css";
-import "../components/cssfiles/search.css";
-
-export function Card(props) {
+import CardClass from "./Cardclass";
+function Card(props) {
+  console.log("test2" + props);
   return (
     <div className="col s12 m7 waves-effect " id="maincard">
       <h2 className="header">{props.header}</h2>

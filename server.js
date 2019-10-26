@@ -4,6 +4,7 @@ var mongoose = require("mongoose");
 const apiRoutes = require("./routes/API.js");
 const app = express();
 const PORT = process.env.PORT || 3001;
+const bcrypt = require("bcrypt");
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));

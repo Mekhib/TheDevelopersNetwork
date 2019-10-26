@@ -287,3 +287,6 @@ input[type="text"]:placeholder {
 * {
   box-sizing: border-box;
 }
+form {
+  width: auto !important;
+}
