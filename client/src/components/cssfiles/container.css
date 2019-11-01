@@ -1,5 +1,12 @@
 #cardcontainer {
   height: 47em;
   width: 100%;
-  background: whitesmoke;
+  background: #757575;
+}
+#cards {
+  overflow: scroll;
+  width: 99em;
+  position: relative;
+  top: 0em;
+  height: 738px;
 }

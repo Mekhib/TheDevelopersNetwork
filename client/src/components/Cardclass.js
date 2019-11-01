@@ -9,19 +9,31 @@ class Cardclass extends Component {
     console.log(this.props.results);
   }
   render() {
+    console.log(this.props.results);
     return (
       <>
-        {this.props.results.map(items => {
-          return (
-            <Card
-              header={items.title}
-              // image={items.pagemap.cse_image[0]}
-              blurb={items.snippet}
-              metalink={items.displayLink}
-              link={items.link}
-            />
-          );
-        })}
+        {this.props.results &&
+          this.props.results.map(items => {
+            return (
+              <Card
+                header={items.title}
+                image={
+                  items.urlToImage
+                    ? items.urlToImage
+                    : (((items.pagemap || {}).cse_image || {})[0] || {}).src
+                }
+                blurb={
+                  items.snippet
+                    ? items.snippet
+                    : items.content
+                    ? items.content
+                    : ""
+                }
+                metalink={items.displayLink ? items.displayLink : items.url}
+                link={items.link ? items.link : items.url}
+              />
+            );
+          })}
       </>
     );
   }

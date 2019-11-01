@@ -1,6 +1,6 @@
 import React from "react";
 import "./cssfiles/card.css";
-import CardClass from "./Cardclass";
+import "./Cardclass";
 function Card(props) {
   console.log("test2" + props);
   return (
@@ -15,7 +15,7 @@ function Card(props) {
             <p>{props.blurb}</p>
           </div>
           <div className="card-action">
-            <a href={props.metalink}>{props.link}</a>
+            <a href={props.link}>{props.link}</a>
           </div>
         </div>
       </div>

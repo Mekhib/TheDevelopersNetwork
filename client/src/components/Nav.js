@@ -5,40 +5,15 @@ import Button from "./Button/index.js";
 import Cardcontainer from "./cardcontainer";
 import Axios from "axios";
 class Search extends Component {
-  componentDidMount() {
-    // Axios.get("/hello").then(res => {
-    //   console.log(res.data[2].title);
-    //   this.setState({ value: res.data });
-    //   console.log(this.state.value);
-    // });
-  }
-  state = {
-    data: [],
-    value: ""
-  };
-  handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-  handleFormSubmit = event => {
-    // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-    event.preventDefault();
-    var opts = {
-      method: "GET",
-      headers: {}
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      search: ""
     };
-    fetch("/mainsearch", opts).then(function(response) {
-      console.log(response);
-    });
-    // API.mainsearch(this.state.query)
-    //   .then(res => this.setState({ data: res.data }))
-    //   .catch(err => console.log(err));
-  };
+  }
   render() {
+    console.log("PROPS", this.props);
     return (
       <div>
         <nav className="nav-extended z-depth-5">
@@ -56,29 +31,39 @@ class Search extends Component {
             <input
               type="text"
               name="search"
-              class="search"
+              class="search glow-on-hover"
               placeholder="Boo!...lean"
-              onChange={this.handleInputChange}
+              onChange={this.props.handleinputchange}
               //this.state.search
               // onClick={this.handleFormSubmit}
             />
-            {/* <Button learn={this.props.learnSearch} /> */}
+            <button
+              class="glow-on-hover"
+              type="button"
+              onClick={this.props.handleFormSubmit}
+            >
+              <p id="btnwrd">Search</p>
+
+              <i class="material-icons" id="searchicon">
+                search
+              </i>
+            </button>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
-                <a href="sass.html">Sass</a>
+                <a href="sass.html">kami..</a>
               </li>
               <li>
-                <a href="badges.html">Components</a>
+                <a href="badges.html">kami....</a>
               </li>
               <li>
-                <a href="collapsible.html">JavaScript</a>
+                <a href="collapsible.html">Ha!!</a>
               </li>
             </ul>
           </div>
           <div className="nav-content">
             <ul className="tabs tabs-transparent">
               <li className="tab">
-                <a href="#test1">The Forums</a>
+                <a href="/fourms/home">The Forums</a>
               </li>
               <li className="tab">
                 <a className="active" href="#test2">
@@ -105,6 +90,14 @@ class Search extends Component {
             <a href="collapsible.html">JavaScript</a>
           </li>
         </ul>
+        <List
+          git={this.props.git}
+          learn={this.props.learnSearch}
+          main={this.props.mainSearch}
+          npm={this.props.npmSearch}
+          api={this.props.apiSearch}
+          stack={this.props.stackSearch}
+        />
       </div>
     );
   }

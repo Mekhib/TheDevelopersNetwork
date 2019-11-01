@@ -9,11 +9,35 @@ function container(props) {
   console.log(props.results);
   return (
     <div id="cardcontainer">
-      <Nav />
-      <List learn={props.learnSearch} />
-      <Tags />
-      <Cardclass learn={props.learnSearch} results={props.results} />
+      <Nav
+        learnSearch={props.learnSearch}
+        results={props.results}
+        main={props.mainSearch}
+        npm={props.npmSearch}
+        api={props.apiSearch}
+        git={props.gitSearch}
+        stack={props.stackSearch}
+        handleinputchange={props.handleInputChange}
+        handleFormSubmit={props.handleFormSubmit}
+      />
+      <List
+        learn={props.learnSearch}
+        main={props.mainSearch}
+        npm={props.npmSearch}
+        api={props.apiSearch}
+        git={props.gitSearch}
+        stack={props.stackSearch}
+      />
       <div id="cards">
+        <Tags />
+        <Cardclass
+          learn={props.learnSearch}
+          results={props.results}
+          main={props.mainSearch}
+          npm={props.npmSearch}
+          api={props.apiSearch}
+          git={props.gitSearch}
+        />
         <Card />
       </div>
     </div>

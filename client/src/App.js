@@ -9,25 +9,99 @@ import Card from "./components/card";
 
 class App extends React.Component {
   state = {
-    results: [
-      {
-        header: "test",
-        image:
-          "http://www.bbc.co.uk/news/special/2015/newsspec_10857/bbc_news_logo.png?cb=1",
-        summary: "something something something darkside",
-        metalink: "google.com",
-        link: "googe.com"
-      }
-    ]
+    results: [],
+    search: ""
   };
-  learnSearch = () => {
-    axios.get("/npm").then(res => {
-      console.log("inital response:" + res);
-      this.setState({ results: res.data });
-      console.log(this.state.results);
+  componentDidMount() {
+    console.log("mounted");
+    axios.get("/main").then(res => {
+      console.log("JSON VERSION!" + JSON.stringify(res, null, 2));
+      this.setState({ results: res.data.articles });
+      console.log("CSCS!" + res);
+    });
+  }
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log("VALUE" + this.state.search);
+    this.mainSearch();
+  };
+
+  handleInputChange = event => {
+    // Destructure the name and value properties off of event.target
+    // Update the appropriate state
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
     });
   };
 
+  learnSearch = () => {
+    axios
+      .post("/learn", {
+        search: this.state.search
+      })
+      .then(res => {
+        console.log("inital response:" + res);
+        this.setState({ results: res.data });
+        console.log(this.state.results);
+      });
+  };
+  mainSearch = () => {
+    axios
+      .post("/mainsearch", {
+        search: this.state.search
+      })
+      .then(res => {
+        console.log("inital response:" + res);
+        this.setState({ results: res.data });
+        console.log(this.state.results);
+      });
+  };
+  npmSearch = () => {
+    axios
+      .post("/npm", {
+        search: this.state.search
+      })
+      .then(res => {
+        console.log("inital response:" + res);
+        this.setState({ results: res.data });
+        console.log(this.state.results);
+      });
+  };
+  apiSearch = () => {
+    axios
+      .post("/api", {
+        search: this.state.search
+      })
+      .then(res => {
+        console.log("inital response:" + res);
+        this.setState({ results: res.data });
+        console.log(this.state.results);
+      });
+  };
+  gitSearch = () => {
+    axios
+      .post("/github", {
+        search: this.state.search
+      })
+      .then(res => {
+        console.log("inital response:" + res);
+        this.setState({ results: res.data });
+        console.log(this.state.results);
+      });
+  };
+  Stacksearch = () => {
+    axios
+      .post("/stack", {
+        search: this.state.search
+      })
+      .then(res => {
+        console.log("inital response:" + res);
+        this.setState({ results: res.data });
+        console.log(this.state.results);
+      });
+  };
   render() {
     return (
       <Router>
@@ -36,8 +110,15 @@ class App extends React.Component {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/home">
             <Contianer
+              handleInputChange={this.handleInputChange}
+              handleFormSubmit={this.handleFormSubmit}
               learnSearch={this.learnSearch}
+              mainSearch={this.mainSearch}
+              npmSearch={this.npmSearch}
+              apiSearch={this.apiSearch}
+              gitSearch={this.gitSearch}
               results={this.state.results}
+              stackSearch={this.state.Stacksearch}
             />
           </Route>
         </Switch>

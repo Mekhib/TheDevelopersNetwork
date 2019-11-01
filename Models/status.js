@@ -1,5 +1,4 @@
 var mongoose = require("mongoose");
-
 var posts = new mongoose.Schema({
   User: {
     type: String,

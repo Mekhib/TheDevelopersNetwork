@@ -4,96 +4,126 @@ const router = require("express").Router();
 const express = require("express");
 const cheerio = require("cheerio");
 const User = require("../Models/User");
+const path = require("path");
 const Post = require("../Models/status");
 const bcrypt = require("bcrypt");
+var CircularJSON = require("circular-json");
 const session = require("express-session");
-var app = express();
-app.use(
-  session({
-    secret: "work hard",
-    resave: true,
-    saveUninitialized: false
-  })
-);
+const passport = require("passport");
+router.get("/main", (req, res) => {
+  axios
+    .get(
+      "https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=91bec895cf8d45eaa46124fb19f6ad81"
+    )
+    .then(function(response) {
+      console.log(
+        "RESPONCE BRO BRO" + JSON.stringify(response.data.articles, null, 2)
+      );
+      res.json(response.data);
+    })
+    .catch(err => console.log("err!" + err));
+});
+router.get("/fourms/home", function(req, res) {
+  res.sendFile(path.join(__dirname, "../Forum/forum.html"));
+});
+router.post("/github", (req, res) => {
+  console.log("req boy" + JSON.stringify(req.body));
+  console.log("working");
+  axios
+    .get(
+      "https://www.googleapis.com/customsearch/v1?key=AIzaSyCwBWJn6c4_Gpj2Xe27ZkXlw2qDB3me3H4&cx=008713660468576906214:zgncpsif0lv&q=" +
+        req.body.search
+    )
+    .then(function(response) {
+      console.log(response.data.items.pagemap);
+      res.json(response.data.items);
+    })
+    .catch(err => console.log("err!" + err));
+});
+router.post("/stack", (req, res) => {
+  axios
+    .get(
+      "https://www.googleapis.com/customsearch/v1?key=AIzaSyCwBWJn6c4_Gpj2Xe27ZkXlw2qDB3me3H4&cx=008713660468576906214:xujnt3og93n&q=" +
+        req.body.search
+    )
+    .then(function(response) {
+      console.log(response.data.items.pagemap);
+      res.json(response.data.items);
+    })
+    .catch(err => console.log("err!" + err));
+});
 
-router.get("/npm", (req, res) => {
+router.post("/npm", (req, res) => {
+  console.log("req boy" + JSON.stringify(req.body));
   console.log("working");
   axios
     .get(
-      "https://www.googleapis.com/customsearch/v1?key=AIzaSyCwBWJn6c4_Gpj2Xe27ZkXlw2qDB3me3H4&cx=008713660468576906214:hckwxdkfyww&q=forloop"
+      "https://www.googleapis.com/customsearch/v1?key=AIzaSyAdkbCQOxD_APoOS8dO7Sul-DlJclsV_eY&cx=008713660468576906214:hckwxdkfyww&q=" +
+        req.body.search
+    )
+    .then(function(response) {
+      console.log(response.data.items);
+      res.json(response.data.items);
+    })
+    .catch(err => console.log("err!" + err));
+});
+router.post("/mainsearch", (req, res) => {
+  console.log("req boy" + JSON.stringify(req.body));
+  console.log("working");
+  axios
+    .get(
+      "https://www.googleapis.com/customsearch/v1?key=AIzaSyAdkbCQOxD_APoOS8dO7Sul-DlJclsV_eY&cx=008713660468576906214:xujnt3og93n&q=" +
+        req.body.search
+    )
+    .then(function(response) {
+      console.log(response.data.items);
+      res.json(response.data.items);
+    })
+    .catch(err => console.log("err!" + err));
+});
+router.post("/learn", (req, res) => {
+  console.log("working");
+  axios
+    .get(
+      "https://www.googleapis.com/customsearch/v1?key=AIzaSyByPhy8gJCVCS014j6zJAEo2NuKi2vuXaA&cx=008713660468576906214:dojipqune9n&q=" +
+        req.body.search
     )
     .then(function(response) {
       console.log(response.data.items);
       res.json(response.data.items);
     });
 });
-router.get("/learn", (req, res) => {
+router.post("/api", (req, res) => {
   console.log("working");
   axios
     .get(
-      "https://www.googleapis.com/customsearch/v1?key=AIzaSyCwBWJn6c4_Gpj2Xe27ZkXlw2qDB3me3H4&cx=008713660468576906214:dojipqune9n&q=forloop"
+      "https://www.googleapis.com/customsearch/v1?key=AIzaSyByPhy8gJCVCS014j6zJAEo2NuKi2vuXaA&cx=008713660468576906214:s36srsh9as6&q=" +
+        req.body.search
     )
     .then(function(response) {
       console.log(response.data.items);
       res.json(response.data.items);
     });
 });
-router.get("/api", (req, res) => {
-  console.log("working");
-  axios
-    .get(
-      "https://www.googleapis.com/customsearch/v1?key=AIzaSyCwBWJn6c4_Gpj2Xe27ZkXlw2qDB3me3H4&cx=008713660468576906214:s36srsh9as6&q=forloop"
-    )
-    .then(function(response) {
-      console.log(response.data.items);
-      res.json(response.data.items);
-    });
-  router.post("/signup", (req, res) => {
-    console.log("hit!");
-    var userData = {
-      name: req.body.state.name,
-      picture: req.body.state.picture,
-      email: req.body.state.email,
-      username: req.body.state.username,
-      password: req.body.state.password
-    };
-    User.pre("save", function(next) {
-      var user = this;
-      bcrypt.hash(user.password, 10, function(err, hash) {
-        if (err) {
-          return next(err);
-        }
-        user.password = hash;
-        next();
-      });
-    });
-    User.create(userData, function(err, user) {
-      if (err) {
-        return err;
-      } else {
-        return res.redirect("/");
-      }
-    });
+router.post("/createuser", (req, res) => {
+  console.log("hello");
+  var userData = {
+    name: req.body.name,
+    picture: req.body.picture,
+    email: req.body.email,
+    username: req.body.username
+  };
+  User.register(new User(userData), req.body.password, function(err, user) {
+    if (err) {
+      throw err;
+    }
+    return res.send({ user: user });
   });
-  router.post("/login", (req, res) => {
-    User.statics.authenticate = function(email, password, callback) {
-      User.findOne({ email: email }).exec(function(err, user) {
-        if (err) {
-          return callback(err);
-        } else if (!user) {
-          var errs = new Error("User not found.");
-          errs.status = 401;
-          return callback(err);
-        }
-        bcrypt.compare(password, user.password, function(err, result) {
-          if (result === true) {
-            return callback(null, user);
-          } else {
-            return callback();
-          }
-        });
-      });
-    };
+});
+router.post("/login", (req, res) => {
+  console.log("hit!");
+  passport.authenticate("local")(req, res, function() {
+    res.json(req.user);
   });
 });
 router.get("/allpost", (req, res) => {
