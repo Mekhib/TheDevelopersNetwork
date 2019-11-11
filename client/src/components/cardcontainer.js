@@ -4,9 +4,10 @@ import Tags from "./tags.js";
 import Nav from "./Nav";
 import List from "./List";
 import Card from "./card.js";
+import App from "./modal";
 import Cardclass from "./Cardclass";
 function container(props) {
-  console.log(props.results);
+  console.log("!!!!!!", props);
   return (
     <div id="cardcontainer">
       <Nav
@@ -38,7 +39,7 @@ function container(props) {
           api={props.apiSearch}
           git={props.gitSearch}
         />
-        <Card />
+        <App />
       </div>
     </div>
   );

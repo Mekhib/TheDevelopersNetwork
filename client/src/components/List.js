@@ -6,7 +6,7 @@ import "./cardcontainer";
 function List(props) {
   console.log(props);
   return (
-    <div class="w3-sidebar w3-bar-block w3-padding z-depth-3">
+    <div class="animated bounceInLeft w3-sidebar w3-bar-block w3-padding z-depth-3">
       <h3 class="w3-bar-item" id="listtitle">
         Menu
       </h3>
@@ -15,7 +15,7 @@ function List(props) {
         class="w3-bar-item w3-button"
         id="list1"
         onClick={() => {
-          return props.main(props.results);
+          return props.stack(props.results);
         }}
       >
         <img
@@ -30,7 +30,7 @@ function List(props) {
         class="w3-bar-item w3-button"
         id="list2"
         onClick={() => {
-          return props.stack(props.results);
+          return props.npm(props.results);
         }}
       >
         <img
@@ -45,7 +45,7 @@ function List(props) {
         class="w3-bar-item w3-button hoverable"
         id="list3"
         onClick={() => {
-          return props.npm(props.results);
+          return props.api(props.results);
         }}
       >
         {" "}
@@ -60,7 +60,9 @@ function List(props) {
         href="#"
         class="w3-bar-item w3-button hoverable"
         id="list4"
-        onClick={props.api}
+        onClick={() => {
+          return props.git(props.results);
+        }}
       >
         <img
           src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
@@ -74,7 +76,7 @@ function List(props) {
         class="w3-bar-item w3-button hoverable"
         id="list5"
         onClick={() => {
-          return props.git(props.results);
+          return props.learn(props.results);
         }}
       >
         <img

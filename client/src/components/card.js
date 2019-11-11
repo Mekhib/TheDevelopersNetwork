@@ -4,7 +4,7 @@ import "./Cardclass";
 function Card(props) {
   console.log("test2" + props);
   return (
-    <div className="col s12 m7 waves-effect " id="maincard">
+    <div className="animated slideInUp col s12 m7 waves-effect " id="maincard">
       <h2 className="header">{props.header}</h2>
       <div className="card horizontal">
         <div className="card-image">

@@ -118,7 +118,7 @@ class App extends React.Component {
               apiSearch={this.apiSearch}
               gitSearch={this.gitSearch}
               results={this.state.results}
-              stackSearch={this.state.Stacksearch}
+              stackSearch={this.Stacksearch}
             />
           </Route>
         </Switch>

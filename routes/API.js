@@ -43,7 +43,7 @@ router.post("/github", (req, res) => {
 router.post("/stack", (req, res) => {
   axios
     .get(
-      "https://www.googleapis.com/customsearch/v1?key=AIzaSyCwBWJn6c4_Gpj2Xe27ZkXlw2qDB3me3H4&cx=008713660468576906214:xujnt3og93n&q=" +
+      "https://www.googleapis.com/customsearch/v1?key=AIzaSyCwBWJn6c4_Gpj2Xe27ZkXlw2qDB3me3H4&cx=008713660468576906214:cj3wfzrnrgo&q=" +
         req.body.search
     )
     .then(function(response) {

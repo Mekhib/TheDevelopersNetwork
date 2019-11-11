@@ -21,6 +21,8 @@ class Cardclass extends Component {
                   items.urlToImage
                     ? items.urlToImage
                     : (((items.pagemap || {}).cse_image || {})[0] || {}).src
+                    ? (((items.pagemap || {}).cse_image || {})[0] || {}).src
+                    : "https://www.webdevelopersnotes.com/wp-content/uploads/create-a-simple-home-page.png"
                 }
                 blurb={
                   items.snippet
