@@ -10,7 +10,6 @@ class Login extends Component {
     password: ""
   };
   login = e => {
-    console.log("HELOOO!");
     e.preventDefault();
     axios
       .post("/login", {
@@ -18,7 +17,6 @@ class Login extends Component {
         password: this.state.password
       })
       .then(res => {
-        console.log(res);
         if (res.status === 200) {
           alert("welcome back!");
           return <Redirect to="/home" />;

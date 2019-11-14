@@ -13,17 +13,14 @@ class App extends React.Component {
     search: null
   };
   componentDidMount() {
-    console.log("mounted");
     axios.get("/main").then(res => {
-      console.log("JSON VERSION!" + JSON.stringify(res, null, 2));
       this.setState({ results: res.data.articles });
-      console.log("CSCS!" + res);
     });
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log("VALUE" + this.state.search);
+
     this.mainSearch();
   };
 
@@ -44,9 +41,7 @@ class App extends React.Component {
             search: this.state.search
           })
           .then(res => {
-            console.log("inital response:" + res);
             this.setState({ results: res.data });
-            console.log(this.state.results);
           });
   };
   mainSearch = () => {
@@ -57,9 +52,7 @@ class App extends React.Component {
             search: this.state.search
           })
           .then(res => {
-            console.log("inital response:" + res);
             this.setState({ results: res.data });
-            console.log(this.state.results);
           });
   };
   npmSearch = () => {
@@ -70,9 +63,7 @@ class App extends React.Component {
             search: this.state.search
           })
           .then(res => {
-            console.log("inital response:" + res);
             this.setState({ results: res.data });
-            console.log(this.state.results);
           });
   };
   apiSearch = () => {
@@ -83,9 +74,7 @@ class App extends React.Component {
             search: this.state.search
           })
           .then(res => {
-            console.log("inital response:" + res);
             this.setState({ results: res.data });
-            console.log(this.state.results);
           });
   };
   gitSearch = () => {
@@ -96,9 +85,7 @@ class App extends React.Component {
             search: this.state.search
           })
           .then(res => {
-            console.log("inital response:" + res);
             this.setState({ results: res.data });
-            console.log(this.state.results);
           });
   };
   Stacksearch = () => {
@@ -109,17 +96,13 @@ class App extends React.Component {
             search: this.state.search
           })
           .then(res => {
-            console.log("inital response:" + res);
             this.setState({ results: res.data });
-            console.log(this.state.results);
           });
   };
   tagresult = e => {
     var tag = e.currentTarget.getAttribute("value");
     axios.get("/tag/" + tag).then(res => {
-      console.log("inital response:" + res);
       this.setState({ results: res.data });
-      console.log(this.state.results);
     });
   };
   render() {

@@ -13,7 +13,6 @@ class Search extends Component {
     };
   }
   render() {
-    console.log("PROPS", this.props);
     return (
       <div>
         <nav className="nav-extended z-depth-5">

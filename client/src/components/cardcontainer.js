@@ -7,7 +7,6 @@ import Card from "./card.js";
 import App from "./modal";
 import Cardclass from "./Cardclass";
 function container(props) {
-  console.log("!!!!!!", props);
   return (
     <div id="cardcontainer">
       <Nav

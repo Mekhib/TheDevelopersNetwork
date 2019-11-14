@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import "./cssfiles/tags.css";
 import Axios from "axios";
 class tags extends Component {
-  componentDidMount() {
-    console.log("tag props", this.props);
-  }
+  componentDidMount() {}
   state = {
     website: "",
     img: "",

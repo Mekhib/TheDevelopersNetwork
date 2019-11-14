@@ -4,7 +4,6 @@ import "../components/cssfiles/list.css";
 import "../components/cssfiles/mainlist.css";
 import "./cardcontainer";
 function List(props) {
-  console.log(props);
   return (
     <div class="animated bounceInLeft w3-sidebar w3-bar-block w3-padding z-depth-3">
       <h3 class="w3-bar-item" id="listtitle">
