@@ -1,7 +1,7 @@
 #cardcontainer {
   height: 47em;
   width: 100%;
-  background: #757575;
+  background: #f9f9f9;
 }
 #cards {
   overflow: scroll;

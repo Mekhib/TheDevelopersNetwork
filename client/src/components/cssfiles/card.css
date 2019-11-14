@@ -9,7 +9,7 @@
   width: 30em;
 }
 h2 {
-  color: white !important;
+  color: black !important;
 }
 .card {
   flex-direction: inherit !important;
@@ -20,7 +20,7 @@ h2 {
 }
 .card.horizontal .card-stacked {
   position: relative !important;
-  background-color: #2f2f4f !important;
+  background-color: #343a40 !important;
   color: snow !important;
   text-overflow: ellipsis !important;
 }

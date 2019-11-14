@@ -4,6 +4,7 @@ const router = require("express").Router();
 const express = require("express");
 const cheerio = require("cheerio");
 const User = require("../Models/User");
+const tags = require("../Models/tags");
 const path = require("path");
 const Post = require("../Models/status");
 const bcrypt = require("bcrypt");
@@ -126,16 +127,27 @@ router.post("/login", (req, res) => {
     res.json(req.user);
   });
 });
+router.post("/addtag", (req, res) => {
+  console.log(req.body);
+  tags.create(req.body).then(function(tag, err) {
+    if (err) throw err;
+    res.send(tag);
+  });
+});
+router.get("/tag/:tags", (req, res) => {
+  var tag = req.params.tags;
+  tags.find({ tag }).then(result => res.send(result));
+});
 router.get("/allpost", (req, res) => {
-  Post.findAll({}).then(result => res.send(result));
+  Post.find({}).then(result => res.send(result));
 });
 router.get("/tagged/:tag", (req, res) => {
   var tag = req.params.tag;
-  Post.findAll({ tag }).then(result => res.send(result));
+  Post.find({ tag }).then(result => res.send(result));
 });
 router.get("/user/:user", (req, res) => {
   var User = req.params.user;
-  Post.findAll({ User }).then(result => res.send(result));
+  Post.find({ User }).then(result => res.send(result));
 });
 router.put("/liked", (req, res) => {
   const filter = { id: req.body.id };

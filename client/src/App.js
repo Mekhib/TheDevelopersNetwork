@@ -10,7 +10,7 @@ import Card from "./components/card";
 class App extends React.Component {
   state = {
     results: [],
-    search: ""
+    search: null
   };
   componentDidMount() {
     console.log("mounted");
@@ -37,70 +37,90 @@ class App extends React.Component {
   };
 
   learnSearch = () => {
-    axios
-      .post("/learn", {
-        search: this.state.search
-      })
-      .then(res => {
-        console.log("inital response:" + res);
-        this.setState({ results: res.data });
-        console.log(this.state.results);
-      });
+    this.state.search === null
+      ? alert("please enter a search  term to continue")
+      : axios
+          .post("/learn", {
+            search: this.state.search
+          })
+          .then(res => {
+            console.log("inital response:" + res);
+            this.setState({ results: res.data });
+            console.log(this.state.results);
+          });
   };
   mainSearch = () => {
-    axios
-      .post("/mainsearch", {
-        search: this.state.search
-      })
-      .then(res => {
-        console.log("inital response:" + res);
-        this.setState({ results: res.data });
-        console.log(this.state.results);
-      });
+    this.state.search === null
+      ? alert("please enter a search  term to continue")
+      : axios
+          .post("/mainsearch", {
+            search: this.state.search
+          })
+          .then(res => {
+            console.log("inital response:" + res);
+            this.setState({ results: res.data });
+            console.log(this.state.results);
+          });
   };
   npmSearch = () => {
-    axios
-      .post("/npm", {
-        search: this.state.search
-      })
-      .then(res => {
-        console.log("inital response:" + res);
-        this.setState({ results: res.data });
-        console.log(this.state.results);
-      });
+    this.state.search === null
+      ? alert("please enter a search  term to continue")
+      : axios
+          .post("/npm", {
+            search: this.state.search
+          })
+          .then(res => {
+            console.log("inital response:" + res);
+            this.setState({ results: res.data });
+            console.log(this.state.results);
+          });
   };
   apiSearch = () => {
-    axios
-      .post("/api", {
-        search: this.state.search
-      })
-      .then(res => {
-        console.log("inital response:" + res);
-        this.setState({ results: res.data });
-        console.log(this.state.results);
-      });
+    this.state.search === null
+      ? alert("please enter a search  term to continue")
+      : axios
+          .post("/api", {
+            search: this.state.search
+          })
+          .then(res => {
+            console.log("inital response:" + res);
+            this.setState({ results: res.data });
+            console.log(this.state.results);
+          });
   };
   gitSearch = () => {
-    axios
-      .post("/github", {
-        search: this.state.search
-      })
-      .then(res => {
-        console.log("inital response:" + res);
-        this.setState({ results: res.data });
-        console.log(this.state.results);
-      });
+    this.state.search === null
+      ? alert("please enter a search  term to continue")
+      : axios
+          .post("/github", {
+            search: this.state.search
+          })
+          .then(res => {
+            console.log("inital response:" + res);
+            this.setState({ results: res.data });
+            console.log(this.state.results);
+          });
   };
   Stacksearch = () => {
-    axios
-      .post("/stack", {
-        search: this.state.search
-      })
-      .then(res => {
-        console.log("inital response:" + res);
-        this.setState({ results: res.data });
-        console.log(this.state.results);
-      });
+    this.state.search === null
+      ? alert("please enter a search  term to continue")
+      : axios
+          .post("/stack", {
+            search: this.state.search
+          })
+          .then(res => {
+            console.log("inital response:" + res);
+            this.setState({ results: res.data });
+            console.log(this.state.results);
+          });
+  };
+  tagresult = e => {
+    var tag = e.currentTarget.getAttribute("value");
+    axios.get("/tag/" + tag).then(res => {
+      console.log("inital response:" + res);
+      this.setState({ results: res.data });
+      console.log(this.state.results);
+    });
   };
   render() {
     return (
@@ -119,6 +139,7 @@ class App extends React.Component {
               gitSearch={this.gitSearch}
               results={this.state.results}
               stackSearch={this.Stacksearch}
+              tagresult={this.tagresult}
             />
           </Route>
         </Switch>

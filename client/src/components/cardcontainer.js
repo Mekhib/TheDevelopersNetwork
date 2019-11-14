@@ -30,7 +30,8 @@ function container(props) {
         stack={props.stackSearch}
       />
       <div id="cards">
-        <Tags />
+        <Tags tagresult={props.tagresult} />
+        <App />
         <Cardclass
           learn={props.learnSearch}
           results={props.results}
@@ -39,7 +40,6 @@ function container(props) {
           api={props.apiSearch}
           git={props.gitSearch}
         />
-        <App />
       </div>
     </div>
   );

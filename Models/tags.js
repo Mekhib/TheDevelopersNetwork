@@ -9,7 +9,7 @@ var tags = new mongoose.Schema({
   img: {
     type: String,
     unique: false,
-    required: true,
+    required: false,
     trim: true
   },
   title: {
@@ -33,9 +33,9 @@ var tags = new mongoose.Schema({
   likes: {
     type: Number,
     unique: false,
-    required: true,
+    required: false,
     trim: true
   }
 });
-var tags = mongoose.model("User", tags);
+var tags = mongoose.model("Tag", tags);
 module.exports = tags;

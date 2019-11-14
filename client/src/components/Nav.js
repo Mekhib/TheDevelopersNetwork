@@ -48,17 +48,6 @@ class Search extends Component {
                 search
               </i>
             </button>
-            <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li>
-                <a href="sass.html">kami..</a>
-              </li>
-              <li>
-                <a href="badges.html">kami....</a>
-              </li>
-              <li>
-                <a href="collapsible.html">Ha!!</a>
-              </li>
-            </ul>
           </div>
           <div className="nav-content">
             <ul className="tabs tabs-transparent">

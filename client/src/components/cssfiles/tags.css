@@ -16,9 +16,11 @@
 #tags {
   position: relative;
   top: 12em;
+  left: 6em;
+  width: fit-content;
 }
 #chip1 {
-  background-color: #4baf4f;
+  background-color: transparent;
 }
 #chip2 {
   background-color: #e44d26;

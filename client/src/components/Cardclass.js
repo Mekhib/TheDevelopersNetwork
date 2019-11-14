@@ -22,6 +22,8 @@ class Cardclass extends Component {
                     ? items.urlToImage
                     : (((items.pagemap || {}).cse_image || {})[0] || {}).src
                     ? (((items.pagemap || {}).cse_image || {})[0] || {}).src
+                    : items.img
+                    ? items.img
                     : "https://www.webdevelopersnotes.com/wp-content/uploads/create-a-simple-home-page.png"
                 }
                 blurb={
@@ -29,10 +31,22 @@ class Cardclass extends Component {
                     ? items.snippet
                     : items.content
                     ? items.content
-                    : ""
+                    : items.summary
                 }
-                metalink={items.displayLink ? items.displayLink : items.url}
-                link={items.link ? items.link : items.url}
+                metalink={
+                  items.displayLink
+                    ? items.displayLink
+                    : items.url
+                    ? items.url
+                    : items.website
+                }
+                link={
+                  items.link
+                    ? items.link
+                    : items.url
+                    ? items.url
+                    : items.website
+                }
               />
             );
           })}
